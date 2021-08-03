@@ -1,14 +1,16 @@
 require_relative 'node'
 
 class LinkedList
-  attr_accessor :head
+  attr_accessor :head, :length
   def initialize
     @head = nil
+    @length = 0
   end
 
   def insert(data)
     new_node = Node.new(data: data, next_node: nil)
-    
+    @length += 1
+
     unless @head
       @head = new_node
     else
@@ -25,16 +27,6 @@ class LinkedList
       puts "Data: #{list.data}"
       list = list.next
     end
-  end
-
-  def length
-    list = @head
-    count = 0
-    while list
-      count += 1
-      list = list.next
-    end
-    count
   end
 
   private
