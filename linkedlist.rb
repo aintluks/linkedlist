@@ -12,12 +12,8 @@ class LinkedList
     unless @head
       @head = new_node
     else
-      unless @head.next
-        @head.next = new_node
-      else
-        last = find_last
-        last.next = new_node
-      end
+      last = find_last
+      last.next = new_node
     end
   end
 
