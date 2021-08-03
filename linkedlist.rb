@@ -27,6 +27,16 @@ class LinkedList
     end
   end
 
+  def length
+    list = @head
+    count = 0
+    while list
+      count += 1
+      list = list.next
+    end
+    count
+  end
+
   private
   def find_last
     list = @head
