@@ -21,6 +21,16 @@ class LinkedList
     end
   end
 
+  def list_all
+    list = @head
+    puts "No data in linkedlist" unless list
+  
+    while list
+      puts "Data: #{list.data}"
+      list = list.next
+    end
+  end
+
   private
   def find_last
     list = @head
