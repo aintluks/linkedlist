@@ -21,10 +21,25 @@ class LinkedList
 
   def list_all
     list = @head
-    puts "No data in linkedlist" unless list
+    result = []
+    [] unless list
   
     while list
-      puts "Data: #{list.data}"
+      result << list.data
+      list = list.next
+    end
+    result
+  end
+
+  def delete(data)
+    list = @head
+    return @head = @head.next, @length -= 1 if @head.data == data
+    
+    while list
+      begin return list.next = list.next.next, @length -= 1 if list.next.data == data
+      rescue
+        break
+      end
       list = list.next
     end
   end
