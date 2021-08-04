@@ -31,15 +31,9 @@ class LinkedList
   end
 
   def list_all
-    list = @head
     result = []
-    [] unless list
-  
-    while list
-      result << list.data
-      list = list.next
-    end
-    result
+    each { |r| result << r }
+    result.include?(nil) ? [] : result
   end
 
   def delete(data)
