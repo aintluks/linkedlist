@@ -110,7 +110,7 @@ class LinkedListTest < Minitest::Test
     @node.insert('Second node')
     result = []
 
-    @node.each { |n| result << n }
+    @node.each { |node| result << node.data }
     assert_equal ['First node', 'Second node'], result
   end
 end

@@ -10,10 +10,10 @@ class LinkedList
 
   def each
     list = @head
-    return yield nil unless list
+    return yield list unless list
   
     while list
-      yield list.data
+      yield list
       list = list.next
     end
   end
@@ -32,7 +32,7 @@ class LinkedList
 
   def list_all
     result = []
-    each { |r| result << r }
+    each { |node| result << node.data unless node.nil? }
     result.include?(nil) ? [] : result
   end
 
@@ -50,10 +50,6 @@ class LinkedList
 
   private
   def find_last
-    list = @head
-    while list
-      return list unless list.next
-      list = list.next
-    end
+    each { |node| return node if node.next.nil? }
   end
 end
