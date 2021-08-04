@@ -36,9 +36,8 @@ class LinkedList
     return @head = @head.next, @length -= 1 if @head.data == data
     
     while list
-      begin return list.next = list.next.next, @length -= 1 if list.next.data == data
-      rescue
-        break
+      if (not list.next.nil?) && list.next.data == data
+        return list.next = list.next.next, @length -= 1
       end
       list = list.next
     end
