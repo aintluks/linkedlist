@@ -99,4 +99,18 @@ class LinkedListTest < Minitest::Test
     assert_equal 1, @node.length
     assert_equal ['First node'], @node.list_all
   end
+
+  def test_each_nonexistent_data
+    each = @node.each { |n| n }
+    assert_nil each
+  end
+
+  def test_each_one_data
+    @node.insert('First node')
+    @node.insert('Second node')
+    result = []
+
+    @node.each { |n| result << n }
+    assert_equal ['First node', 'Second node'], result
+  end
 end

@@ -2,9 +2,20 @@ require_relative 'node'
 
 class LinkedList
   attr_accessor :head, :length
+  include Enumerable
   def initialize
     @head = nil
     @length = 0
+  end
+
+  def each
+    list = @head
+    return yield nil unless list
+  
+    while list
+      yield list.data
+      list = list.next
+    end
   end
 
   def insert(data)
