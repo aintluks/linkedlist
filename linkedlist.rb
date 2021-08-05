@@ -26,14 +26,13 @@ class LinkedList
       @head = new_node
     else
       last = find_last
-      last.next = new_node
+      last.first.next = new_node
     end
   end
 
   def list_all
-    result = []
-    each { |node| result << node.data unless node.nil? }
-    result.include?(nil) ? [] : result
+    rs = map { |node| node.data unless node.nil? }
+    rs.none? ? [] : rs
   end
 
   def delete(data)
@@ -50,6 +49,6 @@ class LinkedList
 
   private
   def find_last
-    each { |node| return node if node.next.nil? }
+    select { |node| node.next.nil? }
   end
 end
